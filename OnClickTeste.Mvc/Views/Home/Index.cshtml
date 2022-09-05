@@ -1,0 +1,30 @@
+﻿@using OnClickTeste.Mvc.Models.Responses
+
+@model ProdutoMercadoLivreResponse
+
+<div class="row">
+    <h3>Dados principais:</h3><br />
+    <div class="col-lg-12">
+        <label><b>Id:</b> @Model.Id</label>
+    </div>
+    <div class="col-lg-12">
+        <label><b>Nome:</b> @Model.Nome</label>
+    </div>
+    <div class="col-lg-12">
+        <label><b>Preco:</b> @Model.Preco</label>
+    </div>
+    <div class="col-lg-12">
+        <label><b>Saldo:</b> @Model.Saldo</label>
+    </div>
+    <div class="col-lg-12">
+        <label><b>Marca:</b> @Model.Atributos.FirstOrDefault(x => x.Id == "BRAND").Valor</label>
+    </div>
+    <br />
+    <h3>Imagens: </h3><br />
+    @foreach(var img in Model.Imagens)
+    {
+        <div class="col-lg-3">
+            <img class="img-fluid" src="@img.Url" />
+        </div>
+    }
+</div>
